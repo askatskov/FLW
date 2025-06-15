@@ -1,6 +1,6 @@
-﻿namespace FLW.Domain
+﻿namespace FLW.Dto
 {
-	public class FileToDatabase
+	public class FileToDatabaseDto
 	{
 		public Guid Id { get; set; }
 		public string ImageTitle { get; set; }

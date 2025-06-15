@@ -18,7 +18,7 @@ namespace FLW.Data
 					ArtistId = Guid.NewGuid(),
 					Artist = "YoungBoy Never Broke Again",
 					Song = "Top Tingz",
-					Rating = 10
+					Rating = 10f
 				}
 			};
 		}
