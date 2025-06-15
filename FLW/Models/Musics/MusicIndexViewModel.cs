@@ -1,7 +1,7 @@
-﻿using Flow.Models.Musics;
+﻿using FLW.Models.Musics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Flow.Models.Musics
+namespace FLW.Models.Musics
 {
 	public class MusicIndexViewModel
 	{

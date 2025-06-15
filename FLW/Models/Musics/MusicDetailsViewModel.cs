@@ -1,6 +1,6 @@
-﻿using Flow.Models.Musics;
+﻿using FLW.Models.Musics;
 
-namespace Flow.Models.Musics
+namespace FLW.Models.Musics
 {
 	public class MusicDetailsViewModel
 	{

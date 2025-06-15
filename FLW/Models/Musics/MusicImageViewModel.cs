@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Flow.Models.Musics
+namespace FLW.Models.Musics
 {
 	public class MusicImageViewModel
 	{
