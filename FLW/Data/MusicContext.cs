@@ -9,7 +9,7 @@ namespace FLW.Data
 	{
 		public MusicContext(DbContextOptions<MusicContext> options) : base(options) { }
 		public DbSet<Music> Musics { get; set; }
-		public DbSet<FileToDatabase> FileToDatabase { get; set; }
+		public DbSet<FileToDatabase> FileToDatabases { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

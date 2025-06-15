@@ -25,8 +25,11 @@ namespace FLW.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
+			var Name = HttpContext.Session.GetString("Name");
+			ViewBag.Name = Name;
+
 			var resultingInventory = _context.Musics
-                .OrderByDescending(y => y.Rating)
+				.OrderByDescending(y => y.Rating)
 				.Select(x => new MusicIndexViewModel
 				{
 					ArtistId = x.ArtistId,
@@ -84,7 +87,7 @@ namespace FLW.Controllers
 			}
 
 
-			var images = await _context.FileToDatabase
+			var images = await _context.FileToDatabases
 				.Where(c => c.ArtistId == id)
 				.Select(y => new MusicImageViewModel
 				{
@@ -114,7 +117,7 @@ namespace FLW.Controllers
 
 			if (id == null) { return NotFound(); }
 
-			var images = await _context.FileToDatabase
+			var images = await _context.FileToDatabases
 				.Where(x => x.ArtistId == id)
 				.Select(y => new MusicImageViewModel
 				{
@@ -143,7 +146,7 @@ namespace FLW.Controllers
 			if (id == null) { return NotFound(); }
 			;
 
-			var images = await _context.FileToDatabase
+			var images = await _context.FileToDatabases
 				.Where(x => x.ArtistId == id)
 				.Select(y => new MusicImageViewModel
 				{

@@ -1,8 +1,14 @@
 ﻿@model IEnumerable<FLW.Models.Musics.MusicIndexViewModel>
 
-@{ int rowNumber = 1; }
-<div><a asp-action="Create" asp-controller="Musics" class="btn btn-primary">Create a new Reviews</a></div>
-<div class="h1">Your Reviews:</div>
+@{
+	int rowNumber = 1;
+}
+@if (ViewBag.Name == "admin")
+{
+	<div><a asp-action="Create" asp-controller="Musics" class="btn btn-primary">Create a new review</a></div>
+
+}
+<div class="h1">Your reviews</div>
 <form method="post">
 	<table class="table table-hover">
 		<thead>
@@ -17,17 +23,19 @@
 			@foreach (var character in Model)
 			{
 				<tr>
-					
+
 					<td>@rowNumber</td>
 					<td>@character.Artist</td>
 					<td>@character.Song</td>
 					<td>@character.Rating</td>
 					<td>
-						<a asp-action="details" asp-controller="Musics" asp-route-id="@character.ArtistId" class="btn btn-info">ReviewDetails</a>
-						<br />
-						<a asp-action="update" asp-controller="Musics" asp-route-id="@character.ArtistId" class="btn btn-info">ReviewConfigure</a>
-						<br />
-						<a asp-action="delete" asp-controller="Musics" asp-route-id="@character.ArtistId" class="btn btn-info">ReviewDelete</a>
+
+						@if (ViewBag.Name == "admin")
+						{
+							<a asp-action="details" asp-controller="Musics" asp-route-id="@character.ArtistId" class="btn btn-info">Details</a>
+							<br />
+							<a asp-action="delete" asp-controller="Musics" asp-route-id="@character.ArtistId" class="btn btn-info">Delete</a>
+						}
 					</td>
 				</tr>
 				rowNumber++;

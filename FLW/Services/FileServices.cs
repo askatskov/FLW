@@ -37,14 +37,14 @@ namespace FLW.Services
 
 						image.CopyTo(target);
 						files.ImageData = target.ToArray();
-						_context.FileToDatabase.Add(files);
+						_context.FileToDatabases.Add(files);
 					}
 				}
 			}
 		}
 		public async Task<FileToDatabase> RemoveImageFromDatabase(FileToDatabase dto)
 		{
-			var imageID = await _context.FileToDatabase
+			var imageID = await _context.FileToDatabases
 				.FirstOrDefaultAsync(x => x.Id == dto.Id);
 			var filePath = _webHost.ContentRootPath + "\\multipleFileUpload\\" + imageID.ImageData;
 			if (File.Exists(filePath))
@@ -52,7 +52,7 @@ namespace FLW.Services
 				File.Delete(filePath);
 			}
 
-			_context.FileToDatabase.Remove(imageID);
+			_context.FileToDatabases.Remove(imageID);
 			await _context.SaveChangesAsync();
 
 			return null;

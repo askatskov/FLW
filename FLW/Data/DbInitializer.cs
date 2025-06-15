@@ -15,12 +15,14 @@ namespace FLW.Data
 			{
 				new Music()
 				{
-					ArtistId = Guid.NewGuid(),
 					Artist = "YoungBoy Never Broke Again",
 					Song = "Top Tingz",
 					Rating = 10f
 				}
 			};
+
+			context.Musics.AddRange(musics);
+			context.SaveChanges();
 		}
 	}
 }
